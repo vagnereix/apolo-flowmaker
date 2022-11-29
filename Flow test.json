@@ -1,0 +1,274 @@
+[
+  {
+    "command": "Flow name",
+    "description": "Flow description",
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": ["Hey"],
+            "collect": {
+              "key": "question_1",
+              "options": [
+                {
+                  "pattern": "How are you?",
+                  "type": "string",
+                  "action": "1"
+                },
+                {
+                  "pattern": "What do you need?",
+                  "type": "string",
+                  "action": "2"
+                },
+                {
+                  "pattern": "What are you doing here?",
+                  "type": "string",
+                  "action": "3"
+                },
+                {
+                  "default": true,
+                  "pattern": "defaut",
+                  "action": "next"
+                }
+              ]
+            },
+            "quick_replies": [
+              {
+                "title": "How are you?",
+                "payload": "How are you?",
+                "content_type": "text"
+              },
+              {
+                "title": "What do you need?",
+                "payload": "What do you need?",
+                "content_type": "text"
+              },
+              {
+                "title": "What are you doing here?",
+                "payload": "What are you doing here?",
+                "content_type": "text"
+              }
+            ],
+            "meta": []
+          },
+          {},
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "1",
+        "script": [
+          {
+            "text": ["I am okay, thanks!"],
+            "collect": {
+              "key": "question_1",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "defaut",
+                  "action": "next"
+                }
+              ]
+            },
+            "quick_replies": [],
+            "meta": []
+          },
+          {
+            "action": "execute_script",
+            "execute": {
+              "script": "End_Conversation",
+              "thread": "start"
+            }
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "2",
+        "script": [
+          {
+            "text": ["Some coffee, thanks!"],
+            "collect": {
+              "key": "question_1",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "defaut",
+                  "action": "next"
+                }
+              ]
+            },
+            "quick_replies": [],
+            "meta": []
+          },
+          {
+            "action": "execute_script",
+            "execute": {
+              "script": "End_Conversation",
+              "thread": "start"
+            }
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "3",
+        "script": [
+          {
+            "text": ["Ow, I am in my coffee time!"],
+            "collect": {
+              "key": "question_1",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "defaut",
+                  "action": "next"
+                }
+              ]
+            },
+            "quick_replies": [],
+            "meta": []
+          },
+          {
+            "action": "execute_script",
+            "execute": {
+              "script": "End_Conversation",
+              "thread": "start"
+            }
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": ["Looks like you got distracted. We can continue later."]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "type": "string",
+        "pattern": "Flow name"
+      }
+    ],
+    "variables": [
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "command": "End_Conversation",
+    "description": "End_Conversation",
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": [
+              "Great! I'm so glad we could fix this for you. In case you need to refer to this later, I've saved this Service Request number for you"
+            ]
+          },
+          {
+            "text": ["Have a good day"]
+          },
+          {
+            "action": "start"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": ["Looks like you got distracted. We can continue later."]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      },
+      {
+        "topic": "start",
+        "script": [
+          {
+            "text": ["How may I help you?"],
+            "quick_replies": [
+              {
+                "title": "Flow name",
+                "payload": "Flow name",
+                "content_type": "text"
+              }
+            ],
+            "collect": {
+              "key": "question_1",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "default",
+                  "action": "next"
+                },
+                {
+                  "pattern": "Flow name",
+                  "type": "string",
+                  "action": "execute_script",
+                  "execute": {
+                    "script": "Flow name",
+                    "thread": "default"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "type": "string",
+        "pattern": "End_Conversation"
+      }
+    ],
+    "variables": [
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ]
+  }
+]

@@ -1,0 +1,169 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove to show React Flow credits */
+.react-flow__attribution {
+  display: none;
+}
+
+/* .react-flow .react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #784be8;
+} */
+
+/* .react-flow .react-flow__handle-top {
+  top: -7px;
+}
+
+.react-flow .react-flow__handle-bottom {
+  bottom: -7px;
+} */
+
+.react-flow .react-flow__node {
+  height: 40px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-width: 2px;
+  font-weight: 700;
+}
+
+.react-flow .react-flow__edge path,
+.react-flow__connectionline path {
+  stroke-width: 2;
+}
+
+.wrapper {
+  flex-grow: 1;
+  height: 100%;
+}
+
+input {
+  text-align: center;
+  max-width: 100%;
+  color: #222;
+  border: none;
+  background: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+.react-flow__node {
+  padding: 10px;
+  border-radius: 3px;
+  width: 150px;
+  font-size: 12px;
+  color: #222;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #1a192b;
+  background-color: white;
+
+  box-shadow: 0 0 0 0.5px #1a192b;
+  outline: none;
+}
+
+.edgebutton {
+  padding: 4px 8px;
+  background: #784be8;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.edgebutton:hover {
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.08);
+}
+
+.edgebutton-foreignobject {
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 4;
+  font-size: 16px;
+  background: #784be8;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+}
+
+.modal input {
+  background: #743ff8;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.08);
+  border: 1px solid #fff;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 8px;
+}
+
+.btn-download {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 4;
+  font-size: 16px;
+  background: #784be8;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-test {
+  top: 60px;
+}
+
+.modal button {
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 600;
+  color: #222;
+}
+
+.unvisible {
+  display: none;
+}

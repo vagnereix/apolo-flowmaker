@@ -1,0 +1,13 @@
+.edge_button {
+  padding: 4px 8px;
+  background: #784be8;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.edge_button:hover {
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.08);
+}
