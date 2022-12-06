@@ -1,4 +1,16 @@
 .wrapper {
   flex-grow: 1;
   height: 100%;
+
+  .buttons {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 4;
+
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
 }

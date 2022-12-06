@@ -11,7 +11,7 @@ export function ExportButton({ mountToExport }: ExportButtonProps) {
       type='button'
       onClick={mountToExport}
     >
-      Get quick replies
+      Get mounted Flow
     </button>
   );
 }

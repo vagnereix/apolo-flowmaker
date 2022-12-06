@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Edge } from 'reactflow';
-
 import styles from './styles.module.scss';
 
 type ModalEditEdgeProps = {
@@ -28,7 +27,7 @@ export function ModalEditEdge({ edgeSelected }: ModalEditEdgeProps) {
         value={v}
         onChange={(e) => setV(e.target.value)}
       />
-      <p>*unselect this edge to apply the changes</p>
+      <p>unselect this edge to apply the changes</p>
     </div>
   );
 }

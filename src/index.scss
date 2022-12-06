@@ -1,0 +1,82 @@
+:root {
+  font-family: 'Roboto', sans-serif;
+
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove to show React Flow credits */
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__node {
+  padding: 10px;
+  border-radius: 4px;
+  width: 150px;
+  font-size: 12px;
+  color: #0e0e0e;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #1a192b;
+  background-color: transparent;
+  outline: none;
+}
+
+.react-flow .react-flow__node {
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-width: 2px;
+  font-weight: 700;
+  border: 2px solid #b6b6b6;
+
+  &.source {
+    background: #0672cb;
+    border: 2px solid #0672cb;
+
+    input {
+      color: #fff !important;
+    }
+  }
+  &.target {
+    border: 2px solid #0672cb;
+  }
+}
+
+.react-flow .react-flow__edge path,
+.react-flow__connectionline path {
+  stroke-width: 2;
+}
+
+.edgebutton-foreignobject {
+}
+
+.react-flow__controls-button svg {
+  fill: #757575;
+}

@@ -35,22 +35,25 @@ function CustomEdgeComponent({
         markerEnd={markerEnd}
       />
       <foreignObject
-        width={100}
+        width={150}
         height={foreignObjectSize}
         x={labelX - foreignObjectSize}
         y={labelY - foreignObjectSize / 2}
         className='edgebutton-foreignobject'
         requiredExtensions='http://www.w3.org/1999/xhtml'
       >
-        <main>
-          <button
-            type='button'
-            className={styles.edge_button}
-            onClick={() => {}}
-          >
-            {label}
-          </button>
-        </main>
+        {label && (
+          <main>
+            <button
+              title='Edge label'
+              type='button'
+              className={styles.edge_button}
+              onClick={() => {}}
+            >
+              {label}
+            </button>
+          </main>
+        )}
       </foreignObject>
     </>
   );

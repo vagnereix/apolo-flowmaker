@@ -34,6 +34,7 @@ type EdgesType = {
 type NodesData = {
   firstNode?: boolean;
   label: string;
+  style: {};
 };
 
 type CollectOptionsType = {
@@ -156,8 +157,46 @@ export function ApoloReactFlow() {
 
   // set edgeSelected where edges change
   useEffect(() => {
-    setEdgeSelected(edges.find((e: Edge) => e.selected));
+    const edgeS = edges.find((e: Edge) => e.selected);
+    edgeS ? setEdgeSelected(edgeS) : setEdgeSelected(undefined);
   }, [edges]);
+
+  useEffect(() => {
+    setNodes((nds) =>
+      nds.map((node) => {
+        if (edgeSelected?.source === node.id) {
+          return {
+            ...node,
+            data: {
+              ...node.data,
+              source: true,
+              target: false,
+            },
+          };
+        }
+
+        if (edgeSelected?.target === node.id) {
+          return {
+            ...node,
+            data: {
+              ...node.data,
+              source: false,
+              target: true,
+            },
+          };
+        }
+
+        return {
+          ...node,
+          data: {
+            ...node.data,
+            source: false,
+            target: false,
+          },
+        };
+      })
+    );
+  }, [edgeSelected]);
 
   const onConnectEnd = useCallback(
     (event: any) => {
@@ -188,15 +227,11 @@ export function ApoloReactFlow() {
           target: id,
           labelBgPadding: [8, 4],
           labelBgBorderRadius: 4,
-          labelBgStyle: {
-            fill: '#784be8',
-            fillOpacity: 0.7,
-          },
           labelStyle: { fill: '#ffffff' },
           markerEnd: {
             type: MarkerType.ArrowClosed,
           },
-          label: 'type to edit label',
+          label: '',
           data: {},
         };
         setEdges((eds: any) => eds.concat(newEdge));
@@ -427,8 +462,10 @@ export function ApoloReactFlow() {
 
   return (
     <div className={styles.wrapper} ref={reactFlowWrapper}>
-      <ExportButton mountToExport={mountToExport} />
-      <DownloadButton />
+      <div className={styles.buttons}>
+        <DownloadButton />
+        <ExportButton mountToExport={mountToExport} />
+      </div>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -443,19 +480,17 @@ export function ApoloReactFlow() {
         edgeTypes={edgeTypes}
         connectionLineStyle={connectionLineStyle}
       >
-        {edgeSelected !== undefined ? (
+        {edgeSelected !== undefined && (
           <ModalEditEdge edgeSelected={edgeSelected} />
-        ) : (
-          <></>
         )}
 
         <MiniMap
           pannable={true}
           nodeStrokeColor={(n: Node) => {
-            return '#0e0e0e';
+            return '#e1e1e1';
           }}
           nodeColor={(n: Node) => {
-            return '#784be8';
+            return '#0672CB';
           }}
         />
         <Controls />
