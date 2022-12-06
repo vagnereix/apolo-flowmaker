@@ -23,9 +23,7 @@ function CustomNodeComponent({ data, isConnectable, id }: any) {
 
       data.source
         ? node?.classList.add('source')
-        : data.target
-        ? node?.classList.add('target')
-        : '';
+        : node?.classList.add('target');
     } else {
       if (node?.classList.contains('source')) {
         node.classList.remove('source');
@@ -37,11 +35,7 @@ function CustomNodeComponent({ data, isConnectable, id }: any) {
   }, [data]);
 
   return (
-    <div
-      className={`${styles.node} ${data.source && 'source'} ${
-        data.target && 'target'
-      }`}
-    >
+    <div>
       {data.firstNode ? (
         <></>
       ) : (

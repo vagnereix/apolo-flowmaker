@@ -20,6 +20,7 @@ export function ModalEditEdge({ edgeSelected }: ModalEditEdgeProps) {
   return (
     <div className={styles.modal}>
       <label htmlFor='edge'>Edge Label {v}</label>
+
       <input
         name='edge'
         type='text'
@@ -27,7 +28,8 @@ export function ModalEditEdge({ edgeSelected }: ModalEditEdgeProps) {
         value={v}
         onChange={(e) => setV(e.target.value)}
       />
-      <p>unselect this edge to apply the changes</p>
+
+      <p>Unselect this edge to apply the changes</p>
     </div>
   );
 }

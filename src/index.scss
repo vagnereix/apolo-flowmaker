@@ -23,9 +23,14 @@ textarea,
 select {
   font: inherit;
 }
+
 body {
   margin: 0;
   padding: 0;
+}
+
+.react-flow {
+  background-color: #fff;
 }
 
 /* Remove to show React Flow credits */
@@ -33,28 +38,40 @@ body {
   display: none;
 }
 
-.react-flow__node {
+.react-flow__node-customNode {
+  width: 235px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #b6b6b6;
+
   padding: 10px;
   border-radius: 4px;
-  width: 150px;
-  font-size: 12px;
-  color: #0e0e0e;
-  text-align: center;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #1a192b;
-  background-color: transparent;
-  outline: none;
-}
 
-.react-flow .react-flow__node {
-  height: 40px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  border-width: 2px;
-  font-weight: 700;
-  border: 2px solid #b6b6b6;
+  outline: none;
+  text-align: center;
+  background-color: transparent;
+
+  input {
+    width: 100%;
+
+    color: #0e0e0e;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+
+    text-overflow: ellipsis;
+
+    border: none;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+    }
+  }
 
   &.source {
     background: #0672cb;
@@ -72,9 +89,6 @@ body {
 .react-flow .react-flow__edge path,
 .react-flow__connectionline path {
   stroke-width: 2;
-}
-
-.edgebutton-foreignobject {
 }
 
 .react-flow__controls-button svg {

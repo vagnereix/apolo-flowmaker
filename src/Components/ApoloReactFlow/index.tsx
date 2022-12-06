@@ -34,7 +34,6 @@ type EdgesType = {
 type NodesData = {
   firstNode?: boolean;
   label: string;
-  style: {};
 };
 
 type CollectOptionsType = {
@@ -157,11 +156,8 @@ export function ApoloReactFlow() {
 
   // set edgeSelected where edges change
   useEffect(() => {
-    const edgeS = edges.find((e: Edge) => e.selected);
-    edgeS ? setEdgeSelected(edgeS) : setEdgeSelected(undefined);
-  }, [edges]);
+    setEdgeSelected(edges.find((e: Edge) => e.selected));
 
-  useEffect(() => {
     setNodes((nds) =>
       nds.map((node) => {
         if (edgeSelected?.source === node.id) {
@@ -196,7 +192,44 @@ export function ApoloReactFlow() {
         };
       })
     );
-  }, [edgeSelected]);
+  }, [edges, edgeSelected]);
+
+  // useEffect(() => {
+  //   setNodes((nds) =>
+  //     nds.map((node) => {
+  //       if (edgeSelected?.source === node.id) {
+  //         return {
+  //           ...node,
+  //           data: {
+  //             ...node.data,
+  //             source: true,
+  //             target: false,
+  //           },
+  //         };
+  //       }
+
+  //       if (edgeSelected?.target === node.id) {
+  //         return {
+  //           ...node,
+  //           data: {
+  //             ...node.data,
+  //             source: false,
+  //             target: true,
+  //           },
+  //         };
+  //       }
+
+  //       return {
+  //         ...node,
+  //         data: {
+  //           ...node.data,
+  //           source: false,
+  //           target: false,
+  //         },
+  //       };
+  //     })
+  //   );
+  // }, [edgeSelected]);
 
   const onConnectEnd = useCallback(
     (event: any) => {

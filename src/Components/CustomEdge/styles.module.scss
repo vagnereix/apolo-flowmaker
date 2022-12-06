@@ -1,4 +1,13 @@
 .edge_button {
+  max-width: 215px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /** número de linhas que você quer exibir */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
   padding: 4px;
   background: #fff;
   border: none;
@@ -8,5 +17,5 @@
   line-height: 1;
   color: #0e0e0e;
   height: 24px;
-  border: 2px solid #e1e1e1;
+  // border: 2px solid #e1e1e1;
 }
